@@ -4,6 +4,35 @@
   
     
     <entry>
+      <title>nodejs-2</title>
+      <link href="/2020/04/30/nodejs-2/"/>
+      <url>/2020/04/30/nodejs-2/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="\assets\js\Meting.min.js"></script><h1 id="node"><a href="#node" class="headerlink" title="node"></a>node</h1><ul><li>包（package）<ul><li>将多个模块组合为一个完整的功能，就是一个包</li><li>包结构<br>bin<ul><li>二进制的可执行文件，一般都是一些工具包中才有<br>lib</li></ul></li><li>js文件<br>doc</li><li>文档<br>test</li><li>测试代码<br>package.json</li><li>包的描述文件</li></ul></li></ul><ul><li><p>package.json    </p><ul><li>它是一个json格式的文件，在它里面保存了包各种相关的信息<br>name 包名<br>version 版本<br>dependencies 依赖<br>main 包的主要的文件<br>bin 可执行文件</li></ul></li><li><p>npm（Node Package Manager node的包管理器）</p><ul><li>通过npm可以对node中的包进行上传、下载、搜索等操作</li><li>npm会在安装完node以后，自动安装</li><li>npm的常用指令<br>npm -v 查看npm的版本<br>npm version 查看所有模块的版本<br>npm init 初始化项目（创建package.json）<br>npm i/install 包名 安装指定的包<br>npm i/install 包名 –save 安装指定的包并添加依赖<br>npm i/install 包名 -g 全局安装（一般都是一些工具）<br>npm i/install 安装当前项目所依赖的包<br>npm s/search 包名 搜索包<br>npm r/remove 包名 删除一个包</li></ul></li></ul><h1 id="文件系统（File-System）"><a href="#文件系统（File-System）" class="headerlink" title="文件系统（File System）"></a>文件系统（File System）</h1><ul><li>Buffer（缓冲区）<ul><li>Buffer和数组的结构的非常类似，Buffer是用来存储二进制数据的<ul><li>Buffer的方法<ul><li>Buffer.from(字符串)<ul><li>将一个字符串中内容保存到一个buffer中</li></ul></li><li>buf.toString()<ul><li>将buffer转换为一个字符串</li></ul></li><li>Buffer.alloc(size)<ul><li>创建一个指定大小的buffer对象</li></ul></li><li>Buffer.allocUnsafe(size)<ul><li>创建一个指定大小的buffer对象，可以包含敏感数据</li></ul></li></ul></li></ul></li></ul></li></ul><ul><li><p>fs模块</p><ul><li><p>在Node通过fs模块来对系统中的文件进行操作，fs模块是node中已经继承好了，不需要在使用npm下载，直接引入即可</p></li><li><p>引入fs<br>var fs = require(“fs”);</p></li><li><p>fs模块中的大部分操作都提供了两种方法，同步方法和异步方法<br>同步方法带sync<br>异步方法没有sync，都需要回调函数</p></li><li><p>写入文件<br>1.同步写入<br>2.异步写入<br>3.简单写入<br>4.流式写入</p></li><li><p>读取文件<br>1.同步读取<br>2.异步读取<br>3.简单读取<br>4.流式读取</p></li><li><p>方法</p><ul><li><p>打开文件<br>fs.open(path, flags[, mode], callback)<br>fs.openSync(path, flags[, mode])</p></li><li><p>读写文件<br>fs.write(fd, string[, position[, encoding]], callback)<br>fs.writeSync(fd, string[, position[, encoding]])</p><p>fs.read(fd, buffer, offset, length, position, callback)<br>fs.readSync(fd, buffer, offset, length, position)</p></li><li><p>关闭文件<br>fs.close(fd,callback)<br>fs.closeSync(fd);</p></li><li><p>简单文件读取和写入<br>fs.writeFile(file, data[, options], callback)<br>fs.writeFileSync(file, data[, options])</p><p>fs.readFile(path[, options], callback)<br>fs.readFileSync(path[, options])</p></li><li><p>流式文件读取和写入</p><p>流式读取和写入适用于一些比较大的文件<br>fs.createWriteStream(path[, options])<br>fs.createReadStream(path[, options])</p></li></ul></li></ul></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 教程 </category>
+          
+          <category> nodejs </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> nodejs </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>nodejs-1</title>
       <link href="/2020/04/30/nodejs-1/"/>
       <url>/2020/04/30/nodejs-1/</url>
