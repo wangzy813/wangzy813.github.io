@@ -51,6 +51,9 @@ img {
 .c_icon{
     color: #C5C6B6;
 }
+.d_icon {
+    color: red;
+}
 #footer {
     background-color: rgba(0, 0, 0, 0.5);
 }
