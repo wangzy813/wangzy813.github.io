@@ -54,3 +54,7 @@ img {
 #footer {
     background-color: rgba(0, 0, 0, 0.5);
 }
+#heartbeat_icon {
+    color: red;
+    font-size: 16px;
+}
