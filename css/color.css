@@ -55,6 +55,8 @@ img {
     color: red;
 }
 #footer {
+    background:url('https://upimage.alexhchu.com/2020/05/25/96625cf776c4d.png')  no-repeat bottom center;
+    background-size:cover;
     background-color: #297fb9be;
 }
 #heartbeat_icon {
