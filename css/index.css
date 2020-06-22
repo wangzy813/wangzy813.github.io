@@ -4658,7 +4658,7 @@ figure.gallery-group .gallery-group-name:after {
 }
 .note:not(.no-icon)::before {
   position: absolute;
-  top: 13px;
+  top: 2px;
   left: 15px;
   font-size: larger;
   font-weight: 600;
