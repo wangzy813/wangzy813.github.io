@@ -4744,7 +4744,7 @@ blockquote.pullquote.right {
 }
 .note:not(.no-icon)::before {
   position: absolute;
-  top: 13px;
+  top: 3px;
   left: 15px;
   font-size: larger;
 }
