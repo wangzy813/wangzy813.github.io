@@ -1,0 +1,495 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>面试题总结一 | Wangxe</title><meta name="keywords" content="笔记,总结,面试"><meta name="author" content="Wangxe,1738791725@qq.com"><meta name="copyright" content="Wangxe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="一、原生js的选择器 JS选择器的主要作用 ​    JS选择器主要用来获取HTML页面中的元素，将页面中的元素保存到一个对象中然后就可以对这些对象的属性值进行相应操作以实现一些动态效果，以达到页面的生动，易用。需要注意的一点是操作的一定是对象，直接将元素当做对象使用是不行的。 ​    JS选择器是将对象对应的元素的属性直接进行操作，所以其改变的style的值是直接改变行间样式优先级远高于CSS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面试题总结一">
+<meta property="og:url" content="https://www.wangxe.top/2021/11/04/notes/index.html">
+<meta property="og:site_name" content="Wangxe">
+<meta property="og:description" content="一、原生js的选择器 JS选择器的主要作用 ​    JS选择器主要用来获取HTML页面中的元素，将页面中的元素保存到一个对象中然后就可以对这些对象的属性值进行相应操作以实现一些动态效果，以达到页面的生动，易用。需要注意的一点是操作的一定是对象，直接将元素当做对象使用是不行的。 ​    JS选择器是将对象对应的元素的属性直接进行操作，所以其改变的style的值是直接改变行间样式优先级远高于CSS">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg">
+<meta property="article:published_time" content="2021-11-04T11:55:39.000Z">
+<meta property="article:modified_time" content="2021-11-16T07:13:48.994Z">
+<meta property="article:author" content="Wangxe">
+<meta property="article:tag" content="笔记">
+<meta property="article:tag" content="总结">
+<meta property="article:tag" content="面试">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg"><link rel="shortcut icon" href="/img/avatar.jpg"><link rel="canonical" href="https://www.wangxe.top/2021/11/04/notes/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin=""/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: {"limitDay":500,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Wangxe","link":"链接: ","source":"来源: Wangxe","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#121212","position":"bottom-left"},
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '面试题总结一',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-16 15:13:48'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const now = new Date()
+          const hour = now.getHours()
+          const isNight = hour <= 6 || hour >= 18
+          if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+          else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    document.addEventListener('pjax:complete', detectApple)})(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/wangzy813/CDN@2.9/css/main.css"><link rel="stylesheet" href="https://at.alicdn.com/t/font_1981288_3twapqscj45.css"><meta name="generator" content="Hexo 5.4.0"></head><body><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="/img/avatar.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">23</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">22</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">18</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://a.wangxe.top"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://wangxe813.gitee.io/nav"><i class="fa-fw fas fa-globe"></i><span> 导航网</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw fas fa-image"></i><span> 相册</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Wangxe</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" target="_blank" rel="noopener" href="https://a.wangxe.top"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-book"></i><span> 文章</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章归档</span></a></li><li><a class="site-page child" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 工具</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" target="_blank" rel="noopener" href="https://wangxe813.gitee.io/nav"><i class="fa-fw fas fa-globe"></i><span> 导航网</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 娱乐</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> 音乐</span></a></li><li><a class="site-page child" href="/photo/"><i class="fa-fw fas fa-image"></i><span> 相册</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">面试题总结一</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-04T11:55:39.000Z" title="发表于 2021-11-04 19:55:39">2021-11-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-16T07:13:48.994Z" title="更新于 2021-11-16 15:13:48">2021-11-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">6.3k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>21分钟</span></span><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="面试题总结一"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="一、原生js的选择器"><a href="#一、原生js的选择器" class="headerlink" title="一、原生js的选择器"></a>一、原生js的选择器</h1><blockquote>
+<p>JS选择器的主要作用</p>
+<p>​    JS选择器主要用来获取HTML页面中的元素，将页面中的元素保存到一个对象中然后就可以对这些对象的属性值进行相应操作以实现一些动态效果，以达到页面的生动，易用。需要注意的一点是操作的一定是对象，直接将元素当做对象使用是不行的。</p>
+<p>​    JS选择器是将对象对应的元素的属性直接进行操作，所以其改变的style的值是直接改变行间样式优先级远高于CSS样式，所以使用时应注意与已经完成的CSS样式的取舍。 </p>
+</blockquote>
+<p> js中原生的选择器主要有以下六种</p>
+<ul>
+<li>document.getElementById() </li>
+<li>document.getElementsByClassName() </li>
+<li>document.getElementsByName() </li>
+<li>document.getElementsByTagName() </li>
+<li>document.querySelector()</li>
+<li>document.querySelectorAll()</li>
+</ul>
+<p>主要介绍document.querySelector() document.querySelectorAll()</p>
+<h2 id="1-document-querySelector"><a href="#1-document-querySelector" class="headerlink" title="1.document.querySelector()"></a>1.document.querySelector()</h2><ul>
+<li>返回第一个匹配的元素（以文档顺序）</li>
+<li>如果没有匹配的元素就返回null。 </li>
+</ul>
+<h2 id="2-document-querySelectorAll"><a href="#2-document-querySelectorAll" class="headerlink" title="2.document.querySelectorAll()"></a>2.document.querySelectorAll()</h2><ul>
+<li>它接受包含一个CSS选择器的字符串参数，返回一个表示文档中匹配选择器的所有元素的NodeList对象。</li>
+<li>该对象并不是实时的它包含在调用时刻所匹配的元素，但它并不更新后续文档的变化。</li>
+<li>如果没有匹配的元素，querySelectorAll（）将返回一个空的NodeList对象。</li>
+<li>如果选择器字符串非法，querySelectorAll（）将抛出一个异常。 </li>
+</ul>
+<h1 id="二、什么时候用id什么时候用class"><a href="#二、什么时候用id什么时候用class" class="headerlink" title="二、什么时候用id什么时候用class"></a>二、什么时候用id什么时候用class</h1><ul>
+<li>当css样式用于不止一个元素时，使用class来定义。</li>
+<li>当css样式只应用于一个元素时，使用id来定义。 </li>
+</ul>
+<h1 id="三、position-absolute与position-fixed的区别"><a href="#三、position-absolute与position-fixed的区别" class="headerlink" title="三、position:absolute与position:fixed的区别"></a>三、position:absolute与position:fixed的区别</h1><blockquote>
+<p> CSS <code>position</code>属性用于指定一个元素在文档中的定位方式。<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/top"><code>top</code></a>，<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/right"><code>right</code></a>，<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/bottom"><code>bottom</code></a> 和 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/left"><code>left</code></a> 属性则决定了该元素的最终位置。 </p>
+</blockquote>
+<h2 id="定位类型"><a href="#定位类型" class="headerlink" title="定位类型"></a>定位类型</h2><ul>
+<li><strong>定位元素（positioned element）</strong>是其<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/computed_value">计算后</a>位置属性为 <code>relative</code>, <code>absolute</code>, <code>fixed</code>或 <code>sticky</code> 的一个元素（换句话说，除<code>static</code>以外的任何东西）。</li>
+<li><strong>相对定位元素（relatively positioned element）</strong>是<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/computed_value">计算后</a>位置属性为 <code>relative</code>的元素。</li>
+<li><strong>绝对定位元素（absolutely positioned element）</strong>是<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/computed_value">计算后</a>位置属性为 <code>absolute</code> 或 <code>fixed</code> 的元素。</li>
+<li><strong>粘性定位元素（stickily positioned element）</strong>是<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/computed_value">计算后</a>位置属性为 <code>sticky</code> 的元素。</li>
+</ul>
+<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p><code>position</code> 属性被指定为从下面的值列表中选择的单个关键字。</p>
+<h2 id="取值"><a href="#取值" class="headerlink" title="取值"></a>取值</h2><ul>
+<li><p><code>static</code></p>
+<p>该关键字指定元素使用正常的布局行为，即元素在文档常规流中当前的布局位置。此时 <code>top</code>, <code>right</code>, <code>bottom</code>, <code>left</code> 和 <code>z-index</code>属性无效。</p>
+</li>
+<li><p><code>relative</code></p>
+<p>该关键字下，元素先放置在未添加定位时的位置，再在不改变页面布局的前提下调整元素位置（因此会在此元素未添加定位时所在位置留下空白）。position:relative 对 table-*-group, table-row, table-column, table-cell, table-caption 元素无效。</p>
+</li>
+<li><p><code>absolute</code></p>
+<p>元素会被移出正常文档流，并不为元素预留空间，通过指定元素相对于最近的非 static 定位祖先元素的偏移，来确定元素位置。绝对定位的元素可以设置外边距（margins），且不会与其他边距合并。</p>
+</li>
+<li><p><code>fixed</code></p>
+<p>元素会被移出正常文档流，并不为元素预留空间，而是通过指定元素相对于屏幕视口（viewport）的位置来指定元素位置。元素的位置在屏幕滚动时不会改变。打印时，元素会出现在的每页的固定位置。<code>fixed</code> 属性会创建新的层叠上下文。当元素祖先的 <code>transform</code>, <code>perspective</code> 或 <code>filter</code> 属性非 <code>none</code> 时，容器由视口改为该祖先。</p>
+</li>
+<li><p><code>sticky</code></p>
+<p>元素根据正常文档流进行定位，然后相对它的最近滚动祖先（nearest scrolling ancestor）和 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Containing_block">containing block</a> (最近块级祖先 nearest block-level ancestor)，包括table-related元素，基于<code>top</code>, <code>right</code>, <code>bottom</code>, 和 <code>left</code>的值进行偏移。偏移值不会影响任何其他元素的位置。</p>
+<p>该值总是创建一个新的<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en/docs/Web/CSS/CSS_Positioning/Understanding_z_index/The_stacking_context">层叠上下文（stacking context</a>）。注意，一个sticky元素会“固定”在离它最近的一个拥有“滚动机制”的祖先上（当该祖先的<code>overflow</code> 是 <code>hidden</code>, <code>scroll</code>, <code>auto</code>, 或 <code>overlay</code>时），即便这个祖先不是最近的真实可滚动祖先。这有效地抑制了任何“sticky”行为（详情见<a target="_blank" rel="noopener" href="https://github.com/w3c/csswg-drafts/issues/865">Github issue on W3C CSSWG</a>）。</p>
+<h1 id="四、Bootstrap-栅格"><a href="#四、Bootstrap-栅格" class="headerlink" title="四、Bootstrap 栅格"></a>四、Bootstrap 栅格</h1></li>
+</ul>
+<blockquote>
+<p> Bootstrap包含了一个强大的移动优先的网格系统，它是基于一个12列的布局、有5种响应尺寸(对应不同的屏幕)，支持Sass mixins自由调用，并结合自己预定义的CSS、Js类，用来创建各种形状和尺寸的布局。 </p>
+</blockquote>
+<h2 id="机制原理"><a href="#机制原理" class="headerlink" title="机制原理"></a>机制原理</h2><p>Bootstrap的网格系统使用一系列<code>div</code>容器的行、列来布局和对齐内容，不同于旧版3.0，新版是完全基于<a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Using_CSS_flexible_boxes">flexbox</a>流式布局构建的，完全支持响应式标准。下面的示例，可以让我们深入了解网格如何组合在一起。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;row&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm&quot;</span>&gt;</span></span><br><span class="line">      三分之一空间占位</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm&quot;</span>&gt;</span></span><br><span class="line">      三分之一空间占位</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;col-sm&quot;</span>&gt;</span></span><br><span class="line">      三分之一空间占位</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>上面的例子使用BootStrap预定义的栅格系统，演示了在<code>.container</code>容器内建立了三个等宽的列，并且分别兼容在small(极窄宽度网页)、medium(中等宽度网页)、large(宽网页)、extra large(超宽网页)四种设备类型-即无论网页宽度如何，这三个列都是<strong>恒在</strong>呈现的。</p>
+<p>让我们来慢慢揭开它的工作原理：</p>
+<ul>
+<li>栅格系统提供了集中内容居中、水平填充网页内容的方法，使用<code>.container</code>(严格意义上也包括<code>.container-fluid</code>，后文相同不再备注-译者)应答网页宽度，或使用<code>.container-fluid</code>使网页能够以<code>100%</code>宽度呈现在所有的浏览器窗口或设备尺寸上。<br>换一个说法就是：<code>.container</code>实现固定的宽度并居中呈现，<code>.container-fluid</code>实现全宽度，并和其它网格实现对齐(译者注)。</li>
+<li>行(<code>.row</code>)是列(<code>.col-*</code>)的横向组合和父容器(它们有效组织在<code>.row</code>下)，每列都有水平的<code>padding</code>值，用于控制它们之间的间隔，同时在负边距的行上抵消，从而实现列中的所有内容在视觉上是左侧对齐的体验。</li>
+<li>网页开发者的呈现内容必须放置在列(<code>.col-*</code>中，而且只有列可以是行的直接子元素，否则都是违法的(不可以在<code>.col-*</code>以上添加呈现内容。</li>
+<li>这一切都要感谢<code>flexbox</code>流式布局，从而使我们不需要指定列的宽度(旧版Bootsrap3是采用严格宽度定义来实现的)就能实现网页自动等宽排列，比如我们在<code>.container</code>中置入初始化的四个<code>.col-sm</code>就能实现各自25%宽度并左对齐形成一行的排列。</li>
+<li>你可能注意到<code>.col-*</code>后面有不同的数字，如<code>.col-sm-4</code>或<code>.col-xl-12</code>，这些css类后面的数字用于表明定义div空间想要占用列的数量，每行最多有12列。如果你想用三个等宽的列，则取12的三分之一，即<code>.col-sm-4</code>就是正确的(后文会有详细的介绍)。</li>
+<li><code>.col-*</code>的<code>width</code>属性(即列宽)是用百分比来表现和定义的，所以它们总是流式的，其尺寸大小受父元素的定义影响(这正是<code>flexbox</code>布局的特征，子元素的宽比和排列受父元素定义)。</li>
+<li>列具有水平<code>padding</code>定义，用于创建列与列之的间隙。</li>
+<li><code>.row</code>上带有<code>margin-left: -15px;margin-right: -15px;</code>属性，你可以在<code>.row</code>上上定义<code>.no-gutters</code>属性，从而消除这个属性，使页面不会<strong>额外宽出30px</strong>，即`。(译者原意拆成两行表述)。</li>
+<li>总共有<a target="_blank" rel="noopener" href="https://getbootstrap.net/docs/layout/grid/#responsive-breakpoints">五个栅格等级</a>，每个响应式分界点隔出一个等级：特小<code>.col</code>、小<code>.col-sm-*</code>、中<code>.col-md-*</code>、大<code>.col-lg-*</code>、特大（大、特大也可以称为宽、超宽）<code>.col-xl-*</code>。</li>
+<li>栅格断点的媒体查询基于宽度的最小值，意味着它们应用到某一等级以及这一等级之上的所有（如<code>.col-sm-4</code>的的定义可以在小型、中型、宽、超宽设备上呈现，但不适用于能在超小型<code>.col-sx</code>上呈现）。</li>
+<li>用户不需要自行定义网格，可以直接使用系统预定义的栅格类（如<code>.col-4</code>）或采用<a target="_blank" rel="noopener" href="https://getbootstrap.net/docs/layout/grid/#sass-mixins">Sass mixins</a>来进行更多的语义标记满足开发需要。</li>
+</ul>
+<h1 id="五、开发页面时怎么debug"><a href="#五、开发页面时怎么debug" class="headerlink" title="五、开发页面时怎么debug"></a>五、开发页面时怎么debug</h1><ul>
+<li>debugger</li>
+<li>alert、confirm；</li>
+<li>console</li>
+<li>element</li>
+<li>breakpoint</li>
+<li>network </li>
+</ul>
+<h1 id="六、什么是CSS-盒模型"><a href="#六、什么是CSS-盒模型" class="headerlink" title="六、什么是CSS 盒模型?"></a>六、什么是CSS 盒模型?</h1><p>完整的 CSS 盒模型应用于块级盒子，内联盒子只使用盒模型中定义的部分内容。模型定义了盒的每个部分 —— margin, border, padding, and content —— 合在一起就可以创建我们在页面上看到的内容。为了增加一些额外的复杂性，有一个标准的和替代（IE）的盒模型。</p>
+<h2 id="盒模型的各个部分"><a href="#盒模型的各个部分" class="headerlink" title="盒模型的各个部分"></a>盒模型的各个部分</h2><p> CSS中组成一个块级盒子需要:</p>
+<ul>
+<li><strong>Content box</strong>: 这个区域是用来显示内容，大小可以通过设置 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/width"><code>width</code></a> 和 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/height"><code>height</code></a>.</li>
+<li><strong>Padding box</strong>: 包围在内容区域外部的空白区域； 大小通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/padding"><code>padding</code></a> 相关属性设置。</li>
+<li><strong>Border box</strong>: 边框盒包裹内容和内边距。大小通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/border"><code>border</code></a> 相关属性设置。</li>
+<li><strong>Margin box</strong>: 这是最外面的区域，是盒子和其他元素之间的空白区域。大小通过 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/margin"><code>margin</code></a> 相关属性设置。</li>
+</ul>
+<h2 id="标准盒模型"><a href="#标准盒模型" class="headerlink" title="标准盒模型"></a>标准盒模型</h2><p>在标准模型中，如果你给盒设置 <code>width</code> 和 <code>height</code>，实际设置的是 <em>content box</em>。 padding 和 border 再加上设置的宽高一起决定整个盒子的大小。</p>
+<p> 假设定义了 <code>width</code>, <code>height</code>, <code>margin</code>, <code>border</code>, and <code>padding</code>: </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">350px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">25px</span>;</span><br><span class="line">  <span class="attribute">padding</span>: <span class="number">25px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">5px</span> solid black;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p> 如果使用标准模型宽度 = 410px (350 + 25 + 25 + 5 + 5)，高度 = 210px (150 + 25 + 25 + 5 + 5)，padding 加 border 再加 content box。 </p>
+<blockquote>
+<p><strong>注</strong>: margin 不计入实际大小 —— 当然，它会影响盒子在页面所占空间，但是影响的是盒子外部空间。盒子的范围到边框为止 —— 不会延伸到margin。 </p>
+</blockquote>
+<h2 id="替代（IE）盒模型"><a href="#替代（IE）盒模型" class="headerlink" title="替代（IE）盒模型"></a>替代（IE）盒模型</h2><p>你可能会认为盒子的大小还要加上边框和内边距，这样很麻烦，而且你的想法是对的! 因为这个原因，css还有一个替代盒模型。使用这个模型，所有宽度都是可见宽度，所以内容宽度是该宽度减去边框和填充部分。使用上面相同的样式得到 (width = 350px, height = 150px).</p>
+<p> 默认浏览器会使用标准模型。如果需要使用替代模型，您可以通过为其设置 <code>box-sizing: border-box</code> 来实现。 这样就可以告诉浏览器使用 <code>border-box</code> 来定义区域，从而设定您想要的大小。 </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p> 如果你希望所有元素都使用替代模式，而且确实很常用，设置 <code>box-sizing</code> 在 `` 元素上，然后设置所有元素继承该属性，正如下面的例子。 </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line">*, *<span class="selector-pseudo">::before</span>, *<span class="selector-pseudo">::after</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: inherit;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="七、CSS三种引入方式：内联、页级、外联"><a href="#七、CSS三种引入方式：内联、页级、外联" class="headerlink" title="七、CSS三种引入方式：内联、页级、外联"></a>七、CSS三种引入方式：内联、页级、外联</h1><h2 id="1-内联"><a href="#1-内联" class="headerlink" title="1.内联"></a>1.内联</h2><p> 内联CSS也可称为行内CSS或者行级CSS，它直接在标签内部引入，显著的优点是十分的便捷、高效；但是同时也造成了不能够重用样式的缺点，如果代码行数到达一定长度不建议采用。通常内联CSS作为测试使用，可以查找代码中bug。 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width: 65px;height: 20px;border: 1px solid;&quot;</span>&gt;</span>测试元素<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-页级CSS"><a href="#2-页级CSS" class="headerlink" title="2.页级CSS"></a>2.页级CSS</h2><p> 页级CSS也可称为内部CSS，整体是放在head标签里边的，在style标签里边定义样式，作用范围和字面意思相同，仅限于本页面的元素；如果你写的代码超过了几百行，想想每次把代码页拉到最上边都很烦，所以它在可维护性方面较差。 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"> 2     <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span> /&gt;</span></span><br><span class="line"> 3     <span class="tag">&lt;<span class="name">title</span>&gt;</span>测试<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"> 4     <span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">&quot;text/css&quot;</span>&gt;</span><span class="css"></span></span><br><span class="line"><span class="css"> <span class="number">5</span>         <span class="selector-tag">div</span> &#123;</span></span><br><span class="line"><span class="css"> <span class="number">6</span>             <span class="attribute">width</span>: <span class="number">65px</span>;</span></span><br><span class="line"><span class="css"> <span class="number">7</span>             <span class="attribute">height</span>: <span class="number">20px</span>;</span></span><br><span class="line"><span class="css"> <span class="number">8</span>             <span class="attribute">border</span>: <span class="number">1px</span> solid;</span></span><br><span class="line"><span class="css"> <span class="number">9</span>             <span class="attribute">background</span>: greenyellow;</span></span><br><span class="line"><span class="css"><span class="number">10</span>         &#125;</span></span><br><span class="line"><span class="css"><span class="number">11</span>     </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line">12 <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-外联CSS"><a href="#3-外联CSS" class="headerlink" title="3. 外联CSS"></a>3. 外联CSS</h2><p> 外联CSS也可称为外部CSS，在实际的项目中通常使用此种方式，它只在页面中使用link或者@import引入即可，可维护性好；并且外联CSS是一个单独的文件，可以作用于多个页面，在修改的时候可以针对性地修改某一块区域，达到多个页面样式同时变更，相较于内联CSS和页级CSS，省去了到每个页面修改的步骤，提高了开发效率，同时一定程度提高了性能。 </p>
+<p> 接下来具体说说link和@import的区别： </p>
+<h3 id="link"><a href="#link" class="headerlink" title="link"></a>link</h3><ul>
+<li><p><code>link:&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;*.css&quot; /&gt;</code></p>
+<p>link语法格式中，rel指的是关联(relation)，type指的是类型，href指的是链接文件路径。</p>
+<p>link的作用主要用来引入CSS和网页图标，指示告知搜索引擎，网页之间的关系等。</p>
+</li>
+<li><p><code>@import:&lt;style&gt;@import url(&quot;*.css&quot;);&lt;/style&gt;</code></p>
+<p>@import语法格式务必写在style标签中，后直接加文件路径即可。</p>
+<p>@import作用在CSS文件和页面中，可以在一个CSS文件中引入其他的CSS文件，例如在index.css文件中引入其他CSS文件的样式，整合在一起后，再在index.html中调用一次即可，在实际项目中经常使用，方便管理和维护。</p>
+</li>
+<li><p>二者加载顺序影响　</p>
+<p>HTML加载过程：</p>
+<ul>
+<li>加载HTML-DOM结构</li>
+<li>CSS和JS</li>
+<li>图片和多媒体</li>
+<li>加载事件触发</li>
+</ul>
+<p>link和@import都没有放置顺序的要求，但是不同的放置位置可能会造成效果显示的差异。对于link，无论放到哪个位置，都是一边加载数据，一边进行优化，视觉感受很好；而对于@import，放置到哪里，才从哪里开始加载CSS样式，即先加载数据，然后加载样式，如果网速不佳，可能会造成只有数据出来，而样式一点点加载的效果。并且在同一个页面中，调用两种方式，link永远比@import优先级高。</p>
+<p>在项目中使用的时候，一般在页面中调用方式为link，并且放在head标签中；使用@import除了在CSS文件中，在页面调用时，一般加载第三方的样式会使用到，并且需要放置在页面的底部，不会影响自己的网站。</p>
+<h1 id="八、eval的具体实现原理"><a href="#八、eval的具体实现原理" class="headerlink" title="八、eval的具体实现原理"></a>八、eval的具体实现原理</h1></li>
+</ul>
+<blockquote>
+<p> eval() 函数可计算某个字符串，并执行其中的的 <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?from=pc_blog_highlight&q=JavaScript">JavaScript</a> 代码。  w3c上对它的定义</p>
+</blockquote>
+<h2 id="语法-1"><a href="#语法-1" class="headerlink" title="语法"></a>语法</h2><blockquote>
+<p>eval(string)</p>
+</blockquote>
+<h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><ul>
+<li><p><code>string</code></p>
+<p>一个表示 JavaScript 表达式、语句或一系列语句的字符串。表达式可以包含变量与已存在对象的属性。</p>
+</li>
+</ul>
+<h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p>返回字符串中代码的返回值。如果返回值为空，则返回 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/undefined"><code>undefined</code></a>。</p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p><code>eval()</code> 是全局对象的一个函数属性。</p>
+<p><code>eval()</code> 的参数是一个字符串。如果字符串表示的是表达式，<code>eval()</code> 会对表达式进行求值。如果参数表示一个或多个 JavaScript 语句，那么<code>eval()</code> 就会执行这些语句。不需要用 <code>eval()</code> 来执行一个算术表达式：因为 JavaScript 可以自动为算术表达式求值。</p>
+<p>如果你以字符串的形式构造了算术表达式，那么可以在后面用 <code>eval()</code>对它求值。例如，假设你有一个变量 <code>x</code>，您可以通过将表达式的字符串值（例如 <code>3 * x + 2</code>）赋值给一个变量，然后在你的代码后面的其他地方调用 <code>eval()</code>，来推迟涉及 <code>x</code> 的表达式的求值。</p>
+<p>如果 <code>eval()</code> 的参数不是字符串， <code>eval()</code> 会将参数原封不动地返回。在下面的例子中，<code>String</code> 构造器被指定，而 <code>eval()</code> 返回了 <code>String</code> 对象而不是执行字符串。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">eval</span>(<span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">&quot;2 + 2&quot;</span>)); <span class="comment">// 返回了包含&quot;2 + 2&quot;的字符串对象</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">&quot;2 + 2&quot;</span>);             <span class="comment">// returns 4</span></span><br></pre></td></tr></table></figure>
+
+<p>你可以使用一些通用的方法来绕过这个限制，例如使用 <code>toString()</code>。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> expression = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">&quot;2 + 2&quot;</span>);</span><br><span class="line"><span class="built_in">eval</span>(expression.toString());</span><br></pre></td></tr></table></figure>
+
+<p>如果你间接的使用 <code>eval()</code>，比如通过一个引用来调用它，而不是直接的调用 <code>eval</code>。 从 <a target="_blank" rel="noopener" href="https://www.ecma-international.org/ecma-262/5.1/#sec-10.4.2">ECMAScript 5</a> 起，它工作在全局作用域下，而不是局部作用域中。这就意味着，例如，下面的代码的作用声明创建一个全局函数，并且 <code>eval</code> 中的这些代码在执行期间不能在被调用的作用域中访问局部变量。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> x = <span class="number">2</span>, y = <span class="number">4</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">eval</span>(<span class="string">&#x27;x + y&#x27;</span>));  <span class="comment">// 直接调用，使用本地作用域，结果是 6</span></span><br><span class="line">  <span class="keyword">var</span> geval = <span class="built_in">eval</span>; <span class="comment">// 等价于在全局作用域调用</span></span><br><span class="line">  <span class="built_in">console</span>.log(geval(<span class="string">&#x27;x + y&#x27;</span>)); <span class="comment">// 间接调用，使用全局作用域，throws ReferenceError 因为`x`未定义</span></span><br><span class="line">  (<span class="number">0</span>, <span class="built_in">eval</span>)(<span class="string">&#x27;x + y&#x27;</span>); <span class="comment">// 另一个间接调用的例子</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="永远不要使用-eval！"><a href="#永远不要使用-eval！" class="headerlink" title="永远不要使用 eval！"></a>永远不要使用 <code>eval</code>！</h2><p><code>eval()</code> 是一个危险的函数， 它使用与调用者相同的权限执行代码。如果你用 <code>eval()</code> 运行的字符串代码被恶意方（不怀好意的人）修改，您最终可能会在您的网页/扩展程序的权限下，在用户计算机上运行恶意代码。更重要的是，第三方代码可以看到某一个 <code>eval()</code> 被调用时的作用域，这也有可能导致一些不同方式的攻击。相似的 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Function"><code>Function</code></a> 就不容易被攻击。</p>
+<p><code>eval()</code> 通常比其他替代方法更慢，因为它必须调用 JS 解释器，而许多其他结构则可被现代 JS 引擎进行优化。</p>
+<p>此外，现代JavaScript解释器将javascript转换为机器代码。 这意味着任何变量命名的概念都会被删除。 因此，任意一个eval的使用都会强制浏览器进行冗长的变量名称查找，以确定变量在机器代码中的位置并设置其值。 另外，新内容将会通过 <code>eval()</code> 引进给变量， 比如更改该变量的类型，因此会强制浏览器重新执行所有已经生成的机器代码以进行补偿。 但是，（谢天谢地）存在一个非常好的eval替代方法：只需使用 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function">window.Function</a>。 这有个例子方便你了解如何将<code>eval()</code>的使用转变为<code>Function()</code>。</p>
+<p>使用eval的糟糕代码:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">looseJsonParse</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">eval</span>(<span class="string">&quot;(&quot;</span> + obj + <span class="string">&quot;)&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(looseJsonParse(</span><br><span class="line">   <span class="string">&quot;&#123;a:(4-1), b:function()&#123;&#125;, c:new Date()&#125;&quot;</span></span><br><span class="line">))</span><br></pre></td></tr></table></figure>
+
+<p> 不用eval的更好的代码:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">looseJsonParse</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Function</span>(<span class="string">&#x27;&quot;use strict&quot;;return (&#x27;</span> + obj + <span class="string">&#x27;)&#x27;</span>)();</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(looseJsonParse(</span><br><span class="line">   <span class="string">&quot;&#123;a:(4-1), b:function()&#123;&#125;, c:new Date()&#125;&quot;</span></span><br><span class="line">))</span><br></pre></td></tr></table></figure>
+
+<p>比较上面的两个代码片段，两个代码片段似乎是以相同的方式工作，但再想一想：eval的这个代码的速度要慢得多。 注意<code>c: new Date()</code>在执行体中。 在没有eval的函数中，对象在全局范围内被用来进行计算，因此浏览器可以放心的假设<code>Date</code>是来自<code>window.Date</code>的而不是一个名为<code>Date</code>的局部变量。</p>
+<h1 id="九、作用域"><a href="#九、作用域" class="headerlink" title="九、作用域"></a>九、作用域</h1><p>在JavaScript中的作用域有<strong>全局作用域</strong>、<strong>局部作用域</strong>（在JavaScript中局部作用域即是<strong>函数作用域</strong>）以及<strong>块级作用域</strong>。</p>
+<ul>
+<li>全局作用域：在最外层函数定义的变量即拥有全局作用域，对于任意函数来说，都可以访问到。例如：</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;     </span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">1</span>;     </span><br><span class="line">    <span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;  </span><br><span class="line">        <span class="built_in">console</span>.log(a);<span class="comment">//1  </span></span><br><span class="line">    &#125;     </span><br><span class="line">    fn();  </span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>局部作用域：和全局作用域相反，局部作用域的变量即是在特定代码块中才能过访问，对于外部是不能够访问的。</p>
+<p>注意：在函数内部定义变量的时候，如果不用var，那么你声明的就是全局变量了。</p>
+</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;     <span class="keyword">var</span> a = <span class="number">1</span>;     </span><br><span class="line">      <span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;       </span><br><span class="line">          <span class="keyword">var</span> b = <span class="number">2</span>;</span><br><span class="line">          <span class="built_in">console</span>.log(a)<span class="comment">//1</span></span><br><span class="line">       &#125;</span><br><span class="line">      fn();</span><br><span class="line">      <span class="built_in">console</span>.log(b);<span class="comment">//b is not defined </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>块级作用域：在代码块中使用<strong>let</strong>定义的变量，只能在当前代码块中进行访问。块级作用域可以形成暂时性死区。</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)&#123;</span><br><span class="line">       <span class="built_in">console</span>.log(i);<span class="comment">//1-9</span></span><br><span class="line">     &#125;</span><br><span class="line">     <span class="built_in">console</span>.log(i);<span class="comment">//undefined</span></span><br><span class="line">   &#125;</span><br><span class="line">   fn()</span><br></pre></td></tr></table></figure>
+
+<h1 id="十、作用域链"><a href="#十、作用域链" class="headerlink" title="十、作用域链"></a>十、作用域链</h1><p>个人理解，作用域就是在函数内部可以访问外部变量的机制，使用链式查找哪些变量可以被函数内部访问。说起作用域链，那么不得不说<strong>执行环境</strong>了。</p>
+<h2 id="执行环境（Execution-Context）"><a href="#执行环境（Execution-Context）" class="headerlink" title="执行环境（Execution Context）"></a>执行环境（Execution Context）</h2><p>EC是JavaScript中一个最为重要的概念。EC定义了变量和函数有权访问的其他数据。JavaScript中，函数在运行时都会产生一个执行环境，并且JS引擎还会产生一个与当前EC相关联的<strong>变量对象</strong>（Variable Object，即VO）。EC中所有定义的变量和方法都包含在VO中。全局执行环境是最外围的执行环境，它是一个“兜底”的执行环境。</p>
+<p>JS引擎在进入一段可执行的代码时，需要完成以下三个初始化工作：</p>
+<p>首先，创建一个<strong>全局对象</strong>(Global Object，即GO)，将Math、String、Data等常用的js对象作为其属性，但是这个GO在全局是不可见的，不可直接访问的。因此它还有另外一个属性window，并将window指向了自身，这样就可以在全局通过访问window，来访问GO的属性和方法了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> globalObject = &#123;</span><br><span class="line">  <span class="built_in">Math</span>,</span><br><span class="line">  <span class="built_in">String</span>,</span><br><span class="line">  Data,</span><br><span class="line">  <span class="built_in">Function</span>,</span><br><span class="line">  ...</span><br><span class="line">  <span class="attr">window</span>:<span class="built_in">this</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其次，JS引擎会创建一个<strong>执行环境栈</strong>（Execution Context Stack 即ECS），与此同时还会创建一个全局环境EC。当JS的执行流执行到一个函数时，JS引擎就会把该函数的EC推到ECS中，当函数执行完之后，再把EC从ECS中弹出，将执行流的控制权交还给上一层的EC。ECMAScript的执行流就是由这种机制控制着。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> ecStack = [];</span><br><span class="line"><span class="comment">//执行到函数fn</span></span><br><span class="line">ecStock.push(EC);</span><br><span class="line"><span class="comment">//执行完fn</span></span><br><span class="line">ecStack.pop(EC);</span><br></pre></td></tr></table></figure>
+
+<p>最后，JS引擎会创造一个和EC相关连的变量对象VO。如果这个环境是一个函数，则将其<strong>活动对象</strong>（Action Object，即AO）作为其变量对象。初始时AO只包含一个变量，即arguments。作用域链的下一个变量对象来自于外部包含环境，而下一个变量对象来自下一个包含环境，这样一直延伸到全局环境。全局变量对象（GO）始终都是作用域链的最后一个对象。</p>
+<p>每一个函数在定义的时候，都会创建一个与之关联的<strong>[[scopes]]</strong>属性，该scope总是指向定义函数时的执行环境EC。举个 ：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="built_in">console</span>.dir(fn);</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://pic3.zhimg.com/80/v2-495d018d3ea92cdf67ddc475ea82e406_720w.jpg" alt="img"></p>
+<p>如上图所示，函数fn的[[scopes]]即是它的执行环境，GO。</p>
+<p>再看：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">var</span> fn = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> b = a + <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b + <span class="number">1</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> t = fn();</span><br><span class="line"><span class="built_in">console</span>.dir(t)</span><br></pre></td></tr></table></figure>
+
+
+
+<p><img src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://pic4.zhimg.com/80/v2-3faf889894663a738e0555b3594456db_720w.jpg" alt="img"></p>
+<p>fn中始终都没有定义变量a，那么JS引擎就会沿着Scope Chain一直向上寻找a，最终在GO中找到了a。</p>
+<h2 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h2><p>当JavaScript的代码块在运行时，就会创建与之相关的作用域链。</p>
+<blockquote>
+<p>作用域链的作用就是保证当前环境对其有权访问的变量和方法进行有序的访问 ——JavaScript高级程序设计</p>
+</blockquote>
+<p>作用域链的前端（也就是开头）就是当前执行环境EC的变量对象，它的变量对象来自于它的外部包含环境，再下一个变量对象同时也来自再下一个外部包含环境，这样一直延伸到全局执行环境，同时，GO也是作用域链的最后一个对象。</p>
+<h2 id="标识符解析"><a href="#标识符解析" class="headerlink" title="标识符解析"></a>标识符解析</h2><p>当在某个环境中为了读取或写入从而引入一个标识符时，必须通过搜索来确定该标识符代表了什么。搜索过程从当期作用域链的前端开始，向上逐级搜索，如果在局部环境中查找到了该标识符的定义，则停止搜索‘否则将一直沿着作用域链向上查找，直到找到GO上。如果找不到，则会报错。</p>
+<h2 id="延长作用域"><a href="#延长作用域" class="headerlink" title="延长作用域"></a>延长作用域</h2><p>虽然作用域只有两种：全局和局部（函数），但是还是有其他办法可以用来延长作用域链。其主要思路就是：有些语句可以在作用域链的前端临时增加一个变量对象，该变量对象在代码执行后就被销毁。</p>
+<p>1、try-catch语句的catch块</p>
+<p>2、with语句</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:1738791725@qq.com">Wangxe</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://www.wangxe.top/2021/11/04/notes/">https://www.wangxe.top/2021/11/04/notes/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.wangxe.top" target="_blank">Wangxe</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/%E7%AC%94%E8%AE%B0/">笔记</a><a class="post-meta__tags" href="/tags/%E6%80%BB%E7%BB%93/">总结</a><a class="post-meta__tags" href="/tags/%E9%9D%A2%E8%AF%95/">面试</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2021/10/28/JavaScript%E9%AB%98%E7%BA%A7/"><img class="next-cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">JavaScript高级</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2020/08/04/project/" title="Vue项目笔记"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/wangzy813/wangxe/img/vuebg.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-08-04</div><div class="title">Vue项目笔记</div></div></a></div><div><a href="/2020/07/25/%E5%89%8D%E7%AB%AF%E9%A1%B5%E9%9D%A2%E4%BC%98%E5%8C%96/" title="前端页面优化"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/wangzy813/wangxe/img/qian.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-07-25</div><div class="title">前端页面优化</div></div></a></div><div><a href="/2020/06/21/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E6%80%BB%E7%BB%93/" title="数据结构与算法"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/wangzy813/wangxe@latest/2020/06/21/bac93d8faef9adb1123b40c426c1a095.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-06-21</div><div class="title">数据结构与算法</div></div></a></div><div><a href="/2020/04/26/2020-04-26-js-1/" title="js-2"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/wangzy813/CDN@1.3/img/4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-26</div><div class="title">js-2</div></div></a></div><div><a href="/2020/04/26/2020-04-26-js/" title="js-1"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/wangzy813/CDN@1.3/img/4.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-04-26</div><div class="title">js-1</div></div></a></div><div><a href="/2020/05/03/angularjs/" title="angularjs"><img class="cover" src= "data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-lazy-src="https://cdn.jsdelivr.net/gh/wangzy813/CDN@1.8/img/8.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2020-05-03</div><div class="title">angularjs</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%8E%9F%E7%94%9Fjs%E7%9A%84%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-text">一、原生js的选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-document-querySelector"><span class="toc-text">1.document.querySelector()</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-document-querySelectorAll"><span class="toc-text">2.document.querySelectorAll()</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8id%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E7%94%A8class"><span class="toc-text">二、什么时候用id什么时候用class</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89%E3%80%81position-absolute%E4%B8%8Eposition-fixed%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-text">三、position:absolute与position:fixed的区别</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%E7%B1%BB%E5%9E%8B"><span class="toc-text">定位类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%96%E5%80%BC"><span class="toc-text">取值</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Bootstrap-%E6%A0%85%E6%A0%BC"><span class="toc-text">四、Bootstrap 栅格</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%88%B6%E5%8E%9F%E7%90%86"><span class="toc-text">机制原理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%BC%80%E5%8F%91%E9%A1%B5%E9%9D%A2%E6%97%B6%E6%80%8E%E4%B9%88debug"><span class="toc-text">五、开发页面时怎么debug</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFCSS-%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-text">六、什么是CSS 盒模型?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E5%90%84%E4%B8%AA%E9%83%A8%E5%88%86"><span class="toc-text">盒模型的各个部分</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-text">标准盒模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%BF%E4%BB%A3%EF%BC%88IE%EF%BC%89%E7%9B%92%E6%A8%A1%E5%9E%8B"><span class="toc-text">替代（IE）盒模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83%E3%80%81CSS%E4%B8%89%E7%A7%8D%E5%BC%95%E5%85%A5%E6%96%B9%E5%BC%8F%EF%BC%9A%E5%86%85%E8%81%94%E3%80%81%E9%A1%B5%E7%BA%A7%E3%80%81%E5%A4%96%E8%81%94"><span class="toc-text">七、CSS三种引入方式：内联、页级、外联</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%86%85%E8%81%94"><span class="toc-text">1.内联</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E9%A1%B5%E7%BA%A7CSS"><span class="toc-text">2.页级CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%A4%96%E8%81%94CSS"><span class="toc-text">3. 外联CSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#link"><span class="toc-text">link</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AB%E3%80%81eval%E7%9A%84%E5%85%B7%E4%BD%93%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86"><span class="toc-text">八、eval的具体实现原理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AD%E6%B3%95-1"><span class="toc-text">语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E6%95%B0"><span class="toc-text">参数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%94%E5%9B%9E%E5%80%BC"><span class="toc-text">返回值</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0"><span class="toc-text">描述</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B0%B8%E8%BF%9C%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8-eval%EF%BC%81"><span class="toc-text">永远不要使用 eval！</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">九、作用域</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="toc-text">十、作用域链</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%A7%E8%A1%8C%E7%8E%AF%E5%A2%83%EF%BC%88Execution-Context%EF%BC%89"><span class="toc-text">执行环境（Execution Context）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%93%BE"><span class="toc-text">作用域链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6%E8%A7%A3%E6%9E%90"><span class="toc-text">标识符解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%B6%E9%95%BF%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-text">延长作用域</span></a></li></ol></li></ol></div></div></div></div></main><footer id="footer" style="background-image: url('https://i.loli.net/2020/05/01/gkihqEjXxJ5UZ1C.jpg')"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Wangxe</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">简</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="chat_btn" type="button" title="rightside.chat_btn"><i class="fas fa-sms"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><div class="aplayer no-destroy" data-id="7661612187" data-theme="#D4237A" data-server="tencent" data-type="playlist" data-fixed="true" data-mini="true" data-listFolded="false" data-order="random" data-preload="none" data-autoplay="true" muted></div><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/activate-power-mode.min.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = false;
+POWERMODE.mobile = false;
+document.body.addEventListener('input', POWERMODE);
+</script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script><script>(function(d, w, c) {
+    w.ChatraID = 'BBC56gJsMsMCafxit';
+    var s = d.createElement('script');
+    w[c] = w[c] || function() {
+        (w[c].q = w[c].q || []).push(arguments);
+    };
+    s.async = true;
+    s.src = 'https://call.chatra.io/chatra.js';
+    if (d.head) d.head.appendChild(s);
+})(document, window, 'Chatra');
+
+if (true) {
+  var chatBtnFn = () => {
+    var chatBtn = document.getElementById("chat_btn")
+    chatBtn.addEventListener("click", function(){
+      Chatra('openChat')
+    });
+  }
+  chatBtnFn()
+} else {
+  if (true) {
+    function chatBtnHide () {
+      Chatra('hide')
+    }
+    function chatBtnShow () {
+      Chatra('show')
+    }
+  }
+}</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = [
+  'title',
+  '#config-diff',
+  '#body-wrap',
+  '#rightside-config-hide',
+  '#rightside-config-show',
+  '.js-pjax'
+]
+
+if (false) {
+  pjaxSelectors.unshift('meta[property="og:image"]', 'meta[property="og:title"]', 'meta[property="og:url"]')
+}
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.removeEventListener('scroll', window.tocScrollFn)
+  window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // Analytics
+  if (false) {
+    MtaH5.pgv()
+  }
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"log":false,"model":{"jsonPath":"/live2dw/assets/haruto.model.json"},"display":{"position":"right","width":100,"height":200,"hOffset":20,"vOffset":-10},"mobile":{"show":true},"react":{"opacity":1}});</script></body></html>
