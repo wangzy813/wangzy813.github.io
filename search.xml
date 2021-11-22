@@ -26,34 +26,7 @@
             
             <tag> 面试 </tag>
             
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>面试题总结三</title>
-      <link href="/2021/11/04/notes-3/"/>
-      <url>/2021/11/04/notes-3/</url>
-      
-        <content type="html"><![CDATA[<h1 id="一、HTTP状态码"><a href="#一、HTTP状态码" class="headerlink" title="一、HTTP状态码"></a>一、HTTP状态码</h1><p>当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。</p><p>HTTP状态码的英文为HTTP Status Code。</p><p>下面是常见的HTTP状态码：</p><ul><li>200 - 请求成功</li><li>301 - 资源（网页等）被永久转移到其它URL</li><li>404 - 请求的资源（网页等）不存在</li><li>500 - 内部服务器错误</li></ul><h1 id="二、浏览器缓存机制强缓存协商缓存"><a href="#二、浏览器缓存机制强缓存协商缓存" class="headerlink" title="二、浏览器缓存机制强缓存协商缓存"></a>二、浏览器缓存机制强缓存协商缓存</h1><blockquote><p><strong>浏览器缓存</strong> 是浏览器将用户请求过的静态资源（html、css、js），存储到电脑本地磁盘中，当浏览器再次访问时，就可以直接从本地加载了，不需要再去服务端请求了。</p><p>但也不是说缓存没有缺点，如果处理不当，可能会导致服务端代码更新了，但是用户却还是老页面。所以前端们要针对项目中各个资源的实际情况，做出合理的缓存策略。</p><p>缓存的优点：</p><ul><li>减少了冗余的数据传输，节省网费</li><li>减少服务器的负担，提升网站性能</li><li>加快了客户端加载网页的速度</li></ul><p>转自：<a href="https://juejin.cn/post/6844903763665240072">浏览器缓存 - 掘金 (juejin.cn)</a> (原文讲的很详细)</p></blockquote><h2 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h2><p>简单粗暴，如果资源没过期，就取缓存，如果过期了，则请求服务器。</p><p>如何判断资源是否过期呢，也就是说强缓存的规则怎么看？</p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2fef124c55304637bbf89591ea947131~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p>主要是看 response headers 中的 Cache-Control 的值，图中的max-age = 31xxxxxxx，就是说在这些秒内，都直接使用缓存，超过了就继续请求服务器</p><p>而和 Cache-Control 并列的，还有一个 Expires ，已经基本淘汰了，所以不用管</p><p><strong>Cache-Control 的几个取值含义：</strong></p><p><strong>private：</strong> 仅浏览器可以缓存</p><p><strong>public：</strong> 浏览器和代理服务器都可以缓存（对于private和public，前端可以认为一样，不用深究）</p><p><strong>max-age=xxx</strong> 过期时间（重要）</p><p><strong>no-cache</strong>  不进行强缓存（重要）</p><p><strong>no-store</strong>   不强缓存，也不协商缓存，基本不用，缓存越多才越好呢</p><p>注意：规则可以同时多个</p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c50fd6d7f97c41458a2b60cf8c2601af~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p>所以，对于强缓存，我们主要研究 Cache-Control 中的 max-age 和 no-cache</p><p>所以，判断该资源是否命中强缓存，就看 response 中 Cache-Control 的值，如果有max-age=xxx秒，则命中强缓存。如果Cache-Control的值是no-cache，说明没命中强缓存，走协商缓存。</p><p><strong>强缓存流程：</strong></p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07f8dcf612474aa3b35ebea794f06fbe~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c27d01f81b746db9594013415232287~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p>所以强缓存步骤已经很清晰了：</p><ol><li>第一次请求 a.js ，缓存表中没该信息，直接请求后端服务器。</li><li>后端服务器返回了 a.js ，且 http response header 中 cache-control 为 max-age=xxxx，所以是强缓存规则，存入缓存表中。</li><li>第二次请求 a.js ，缓存表中是 max-age， 那么命中强缓存，然后判断是否过期，如果没过期，直接读缓存的a.js，如果过期了，则执行协商缓存的步骤了。</li></ol><p><strong>注意</strong></p><p>这里有个问题，就是 max-age = 0 ，和 no-cache 有啥区别，我理解的是，no-cache直接不进行强缓存，让你去走协商缓存，而max-age=0是进行强缓存，但是过期了，需要更新。。。虽然实际上看起来两者效果是一样的。</p><p><a href="https://link.juejin.cn?target=https%3A%2F%2Fwww.itranslater.com%2Fqa%2Fdetails%2F2106051831532094464">www.itranslater.com/qa/details/…</a></p><h3 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h3><p>触发条件：</p><ol><li>Cache-Control 的值为 no-cache （不强缓存）</li><li>或者 max-age 过期了 （强缓存，但总有过期的时候）</li></ol><p>也就是说，不管怎样，都可能最后要进行协商缓存（no-store除外）</p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cfd149d78c3e4e25a3d5ce6128bb65b1~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p>这个图，虽然强缓存命中，但是也有 ETag 和 Last-Modified ，这两个就是协商缓存的相关规则。虽然之前的强缓存流程和他俩没关。。。</p><p>ETag：每个文件有一个，改动文件了就变了，可以看似md5</p><p>Last-Modified：文件的修改时间</p><p>也就是说，每次http返回来 <strong>response</strong> header 中的 ETag和 Last-Modified，在下次请求时在 <strong>request</strong> header 就把这两个带上（但是名字变了ETag–&gt;If-None-Match，Last-Modified–&gt;If-Modified-Since ），服务端把你带过来的标识，资源目前的标识，进行对比，然后判断资源是否更改了。</p><p>这个过程是循环往复的，即缓存表在每次请求成功后都会更新规则。</p><p><strong>1. 第n次请求成功时：</strong></p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae429acb07da4066ba780980451ed8d7~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p><strong>2. 缓存表中更新该资源的 ETag 值</strong></p><p><strong>3. 第n+1次请求：</strong></p><p>从缓存表中取该资源最新的ETag，然后加在 request header 中, 注意变名字了，由 ETag – &gt; If-None-Match</p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b59c098641a94f4099373b45ad8f572c~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p>图：</p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58e4541b60f44ff7ac7e9cf6c1242ba0~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77ece84bcd294d22bdc966362248663e~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p>所以协商缓存步骤总结：</p><ol><li>请求资源时，把用户本地该资源的 ETag 同时带到服务端，服务端和最新资源做对比。</li><li>如果资源没更改，返回304，浏览器读取本地缓存。</li><li>如果资源有更改，返回200，返回最新的资源。</li></ol><h1 id="三、promise"><a href="#三、promise" class="headerlink" title="三、promise"></a>三、promise</h1><p> <strong>Promise</strong> 对象用于表示一个异步操作的最终完成 (或失败)及其结果值。 </p><h2 id="有几种状态"><a href="#有几种状态" class="headerlink" title="有几种状态"></a>有几种状态</h2><p>一个 <code>Promise</code> 必然处于以下几种状态之一：</p><ul><li><em>待定（pending）</em>: 初始状态，既没有被兑现，也没有被拒绝。</li><li><em>已兑现（fulfilled）</em>: 意味着操作成功完成。</li><li><em>已拒绝（rejected）</em>: 意味着操作失败。</li></ul><h2 id="Promise-优缺点"><a href="#Promise-优缺点" class="headerlink" title="Promise 优缺点"></a>Promise 优缺点</h2><p>有了 Promise 对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise 对象提供统一的接口，使得控制异步操作更加容易。</p><p>Promise 也有一些缺点。首先，无法取消 Promise，一旦新建它就会立即执行，无法中途取消。其次，如果不设置回调函数，Promise 内部抛出的错误，不会反应到外部。第三，当处于 Pending 状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。</p><h1 id="四、为什么用Vuex，其他方式实现Vuex"><a href="#四、为什么用Vuex，其他方式实现Vuex" class="headerlink" title="四、为什么用Vuex，其他方式实现Vuex"></a>四、为什么用<code>Vuex</code>，其他方式实现Vuex</h1><p> Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 </p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 前端 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 笔记 </tag>
-            
-            <tag> 总结 </tag>
-            
-            <tag> 面试 </tag>
+            <tag> 百度 </tag>
             
         </tags>
       
@@ -83,6 +56,39 @@
             <tag> 总结 </tag>
             
             <tag> 面试 </tag>
+            
+            <tag> 百度 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>面试题总结三</title>
+      <link href="/2021/11/04/notes-3/"/>
+      <url>/2021/11/04/notes-3/</url>
+      
+        <content type="html"><![CDATA[<h1 id="一、HTTP状态码"><a href="#一、HTTP状态码" class="headerlink" title="一、HTTP状态码"></a>一、HTTP状态码</h1><p>当浏览者访问一个网页时，浏览者的浏览器会向网页所在服务器发出请求。当浏览器接收并显示网页前，此网页所在的服务器会返回一个包含HTTP状态码的信息头（server header）用以响应浏览器的请求。</p><p>HTTP状态码的英文为HTTP Status Code。</p><p>下面是常见的HTTP状态码：</p><ul><li>200 - 请求成功</li><li>301 - 资源（网页等）被永久转移到其它URL</li><li>404 - 请求的资源（网页等）不存在</li><li>500 - 内部服务器错误</li></ul><h1 id="二、浏览器缓存机制强缓存协商缓存"><a href="#二、浏览器缓存机制强缓存协商缓存" class="headerlink" title="二、浏览器缓存机制强缓存协商缓存"></a>二、浏览器缓存机制强缓存协商缓存</h1><blockquote><p><strong>浏览器缓存</strong> 是浏览器将用户请求过的静态资源（html、css、js），存储到电脑本地磁盘中，当浏览器再次访问时，就可以直接从本地加载了，不需要再去服务端请求了。</p><p>但也不是说缓存没有缺点，如果处理不当，可能会导致服务端代码更新了，但是用户却还是老页面。所以前端们要针对项目中各个资源的实际情况，做出合理的缓存策略。</p><p>缓存的优点：</p><ul><li>减少了冗余的数据传输，节省网费</li><li>减少服务器的负担，提升网站性能</li><li>加快了客户端加载网页的速度</li></ul><p>转自：<a href="https://juejin.cn/post/6844903763665240072">浏览器缓存 - 掘金 (juejin.cn)</a> (原文讲的很详细)</p></blockquote><h2 id="强缓存"><a href="#强缓存" class="headerlink" title="强缓存"></a>强缓存</h2><p>简单粗暴，如果资源没过期，就取缓存，如果过期了，则请求服务器。</p><p>如何判断资源是否过期呢，也就是说强缓存的规则怎么看？</p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2fef124c55304637bbf89591ea947131~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p>主要是看 response headers 中的 Cache-Control 的值，图中的max-age = 31xxxxxxx，就是说在这些秒内，都直接使用缓存，超过了就继续请求服务器</p><p>而和 Cache-Control 并列的，还有一个 Expires ，已经基本淘汰了，所以不用管</p><p><strong>Cache-Control 的几个取值含义：</strong></p><p><strong>private：</strong> 仅浏览器可以缓存</p><p><strong>public：</strong> 浏览器和代理服务器都可以缓存（对于private和public，前端可以认为一样，不用深究）</p><p><strong>max-age=xxx</strong> 过期时间（重要）</p><p><strong>no-cache</strong>  不进行强缓存（重要）</p><p><strong>no-store</strong>   不强缓存，也不协商缓存，基本不用，缓存越多才越好呢</p><p>注意：规则可以同时多个</p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c50fd6d7f97c41458a2b60cf8c2601af~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p>所以，对于强缓存，我们主要研究 Cache-Control 中的 max-age 和 no-cache</p><p>所以，判断该资源是否命中强缓存，就看 response 中 Cache-Control 的值，如果有max-age=xxx秒，则命中强缓存。如果Cache-Control的值是no-cache，说明没命中强缓存，走协商缓存。</p><p><strong>强缓存流程：</strong></p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/07f8dcf612474aa3b35ebea794f06fbe~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6c27d01f81b746db9594013415232287~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p>所以强缓存步骤已经很清晰了：</p><ol><li>第一次请求 a.js ，缓存表中没该信息，直接请求后端服务器。</li><li>后端服务器返回了 a.js ，且 http response header 中 cache-control 为 max-age=xxxx，所以是强缓存规则，存入缓存表中。</li><li>第二次请求 a.js ，缓存表中是 max-age， 那么命中强缓存，然后判断是否过期，如果没过期，直接读缓存的a.js，如果过期了，则执行协商缓存的步骤了。</li></ol><p><strong>注意</strong></p><p>这里有个问题，就是 max-age = 0 ，和 no-cache 有啥区别，我理解的是，no-cache直接不进行强缓存，让你去走协商缓存，而max-age=0是进行强缓存，但是过期了，需要更新。。。虽然实际上看起来两者效果是一样的。</p><p><a href="https://link.juejin.cn?target=https%3A%2F%2Fwww.itranslater.com%2Fqa%2Fdetails%2F2106051831532094464">www.itranslater.com/qa/details/…</a></p><h3 id="协商缓存"><a href="#协商缓存" class="headerlink" title="协商缓存"></a>协商缓存</h3><p>触发条件：</p><ol><li>Cache-Control 的值为 no-cache （不强缓存）</li><li>或者 max-age 过期了 （强缓存，但总有过期的时候）</li></ol><p>也就是说，不管怎样，都可能最后要进行协商缓存（no-store除外）</p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cfd149d78c3e4e25a3d5ce6128bb65b1~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p>这个图，虽然强缓存命中，但是也有 ETag 和 Last-Modified ，这两个就是协商缓存的相关规则。虽然之前的强缓存流程和他俩没关。。。</p><p>ETag：每个文件有一个，改动文件了就变了，可以看似md5</p><p>Last-Modified：文件的修改时间</p><p>也就是说，每次http返回来 <strong>response</strong> header 中的 ETag和 Last-Modified，在下次请求时在 <strong>request</strong> header 就把这两个带上（但是名字变了ETag–&gt;If-None-Match，Last-Modified–&gt;If-Modified-Since ），服务端把你带过来的标识，资源目前的标识，进行对比，然后判断资源是否更改了。</p><p>这个过程是循环往复的，即缓存表在每次请求成功后都会更新规则。</p><p><strong>1. 第n次请求成功时：</strong></p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ae429acb07da4066ba780980451ed8d7~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p><strong>2. 缓存表中更新该资源的 ETag 值</strong></p><p><strong>3. 第n+1次请求：</strong></p><p>从缓存表中取该资源最新的ETag，然后加在 request header 中, 注意变名字了，由 ETag – &gt; If-None-Match</p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b59c098641a94f4099373b45ad8f572c~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p>图：</p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/58e4541b60f44ff7ac7e9cf6c1242ba0~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p><img src="https:////p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/77ece84bcd294d22bdc966362248663e~tplv-k3u1fbpfcp-watermark.awebp" alt="img"></p><p>所以协商缓存步骤总结：</p><ol><li>请求资源时，把用户本地该资源的 ETag 同时带到服务端，服务端和最新资源做对比。</li><li>如果资源没更改，返回304，浏览器读取本地缓存。</li><li>如果资源有更改，返回200，返回最新的资源。</li></ol><h1 id="三、promise"><a href="#三、promise" class="headerlink" title="三、promise"></a>三、promise</h1><p> <strong>Promise</strong> 对象用于表示一个异步操作的最终完成 (或失败)及其结果值。 </p><h2 id="有几种状态"><a href="#有几种状态" class="headerlink" title="有几种状态"></a>有几种状态</h2><p>一个 <code>Promise</code> 必然处于以下几种状态之一：</p><ul><li><em>待定（pending）</em>: 初始状态，既没有被兑现，也没有被拒绝。</li><li><em>已兑现（fulfilled）</em>: 意味着操作成功完成。</li><li><em>已拒绝（rejected）</em>: 意味着操作失败。</li></ul><h2 id="Promise-优缺点"><a href="#Promise-优缺点" class="headerlink" title="Promise 优缺点"></a>Promise 优缺点</h2><p>有了 Promise 对象，就可以将异步操作以同步操作的流程表达出来，避免了层层嵌套的回调函数。此外，Promise 对象提供统一的接口，使得控制异步操作更加容易。</p><p>Promise 也有一些缺点。首先，无法取消 Promise，一旦新建它就会立即执行，无法中途取消。其次，如果不设置回调函数，Promise 内部抛出的错误，不会反应到外部。第三，当处于 Pending 状态时，无法得知目前进展到哪一个阶段（刚刚开始还是即将完成）。</p><h1 id="四、为什么用Vuex，其他方式实现Vuex"><a href="#四、为什么用Vuex，其他方式实现Vuex" class="headerlink" title="四、为什么用Vuex，其他方式实现Vuex"></a>四、为什么用<code>Vuex</code>，其他方式实现Vuex</h1><p> Vuex 是一个专为 Vue.js 应用程序开发的<strong>状态管理模式</strong>。它采用集中式存储管理应用的所有组件的状态，并以相应的规则保证状态以一种可预测的方式发生变化。 </p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 前端 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记 </tag>
+            
+            <tag> 总结 </tag>
+            
+            <tag> 面试 </tag>
+            
+            <tag> 七牛云 </tag>
             
         </tags>
       
