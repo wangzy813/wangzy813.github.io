@@ -1,0 +1,30 @@
+[
+  {
+    "edition": 1,
+    "month": "2026-03",
+    "players": 0,
+    "status": "已结算",
+    "results": []
+  },
+  {
+    "edition": 2,
+    "month": "2026-04",
+    "players": 0,
+    "status": "已结算",
+    "results": []
+  },
+  {
+    "edition": 3,
+    "month": "2026-05",
+    "players": 0,
+    "status": "已结算",
+    "results": []
+  },
+  {
+    "edition": 4,
+    "month": "2026-06",
+    "players": 17,
+    "status": "进行中",
+    "results": []
+  }
+]
