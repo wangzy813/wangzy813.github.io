@@ -18,6 +18,22 @@
         "commSell": 449,
         "mainNet": 0
       },
+      "002428": {
+        "name": "云南锗业",
+        "open": 89.5,
+        "close": 92.26,
+        "high": 93.39,
+        "low": 87,
+        "volume": 1305378,
+        "amount": 11855041836.79,
+        "pct": 4.56,
+        "turnover": 0,
+        "outVol": 655005,
+        "inVol": 650374,
+        "commBuy": 4101,
+        "commSell": 1999,
+        "mainNet": 0
+      },
       "002384": {
         "name": "东山精密",
         "open": 220.5,
