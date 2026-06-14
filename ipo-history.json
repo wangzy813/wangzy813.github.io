@@ -2,38 +2,6 @@
   {
     "date": "2026-06-14",
     "stocks": {
-      "600246": {
-        "name": "万通发展",
-        "open": 17.5,
-        "close": 16.07,
-        "high": 17.79,
-        "low": 16,
-        "volume": 1742054,
-        "amount": 2886958598,
-        "pct": -6.24,
-        "turnover": 0,
-        "outVol": 821601,
-        "inVol": 920454,
-        "commBuy": 684,
-        "commSell": 922,
-        "mainNet": 0
-      },
-      "600330": {
-        "name": "天通股份",
-        "open": 30.09,
-        "close": 28.25,
-        "high": 30.34,
-        "low": 28.06,
-        "volume": 1188992,
-        "amount": 3464700298,
-        "pct": -3.62,
-        "turnover": 0,
-        "outVol": 531072,
-        "inVol": 657920,
-        "commBuy": 449,
-        "commSell": 964,
-        "mainNet": 0
-      },
       "603738": {
         "name": "泰晶科技",
         "open": 50,
@@ -48,22 +16,6 @@
         "inVol": 122135,
         "commBuy": 1108,
         "commSell": 449,
-        "mainNet": 0
-      },
-      "603773": {
-        "name": "沃格光电",
-        "open": 137.07,
-        "close": 129.8,
-        "high": 149.87,
-        "low": 125.51,
-        "volume": 546066,
-        "amount": 7283038829,
-        "pct": -6.93,
-        "turnover": 0,
-        "outVol": 274930,
-        "inVol": 271136,
-        "commBuy": 2758,
-        "commSell": 2430,
         "mainNet": 0
       },
       "002428": {
