@@ -24,6 +24,31 @@
     "edition": 4,
     "month": "2026-06",
     "players": 17,
+    "status": "已结算",
+    "results": [
+      {"rank":1,"player":"三安拿2年","stock":"红星发展","code":"600367","base":32.09,"close":62.93,"chg":96.10},
+      {"rank":2,"player":"只核小学生","stock":"亨通光电","code":"600487","base":77.12,"close":109.34,"chg":41.78},
+      {"rank":3,"player":"放下执念 跟随市场","stock":"泰晶科技","code":"603738","base":43.42,"close":60.05,"chg":38.30},
+      {"rank":4,"player":"主力的狗腿子","stock":"晶方科技","code":"603005","base":41.04,"close":53.87,"chg":31.26},
+      {"rank":5,"player":"江苏长电科技","stock":"长电科技","code":"600584","base":82.05,"close":103.55,"chg":26.20},
+      {"rank":6,"player":"李瞎浪","stock":"光迅科技","code":"002281","base":203.95,"close":256.94,"chg":25.98},
+      {"rank":7,"player":"Sasa","stock":"沪电股份","code":"002463","base":132.04,"close":152.80,"chg":15.72},
+      {"rank":8,"player":"忆","stock":"王子新材","code":"002735","base":14.80,"close":16.23,"chg":9.66},
+      {"rank":9,"player":"加仓回本","stock":"浪潮信息","code":"000977","base":64.63,"close":70.00,"chg":8.31},
+      {"rank":10,"player":"掌管恒科的神","stock":"方正科技","code":"600601","base":13.43,"close":13.84,"chg":3.05},
+      {"rank":11,"player":"巨人的肩膀","stock":"万向钱潮","code":"000559","base":14.78,"close":12.93,"chg":-12.52},
+      {"rank":12,"player":"Hudson🐳","stock":"圣阳股份","code":"002580","base":24.24,"close":20.16,"chg":-16.83},
+      {"rank":13,"player":"fucker man","stock":"中金黄金","code":"600489","base":22.42,"close":18.05,"chg":-19.49},
+      {"rank":14,"player":"cnm大A","stock":"精达股份","code":"600577","base":13.00,"close":9.78,"chg":-24.77},
+      {"rank":15,"player":"傻逼通威","stock":"环旭电子","code":"601231","base":44.82,"close":32.40,"chg":-27.71},
+      {"rank":16,"player":"点点圈圈丶","stock":"汇金科技","code":"300561","base":20.92,"close":14.12,"chg":-32.50},
+      {"rank":17,"player":"努力回本","stock":"惠泉啤酒","code":"600573","base":13.33,"close":8.90,"chg":-33.23}
+    ]
+  },
+  {
+    "edition": 5,
+    "month": "2026-07",
+    "players": 17,
     "status": "进行中",
     "results": []
   }
